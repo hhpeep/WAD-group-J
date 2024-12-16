@@ -1,16 +1,17 @@
 <template>
   <div id="app">
     <PageHeader />
-    <Post v-for="post in Posts" :key="post.id" :post="post" />
+    <Post v-for="post in allPosts" :key="post.id" :post= "post" class= "post" />
     <PageFooter />
 </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import PageFooter from "/src/components/Footer.vue"
 import PageHeader from "/src/components/Header.vue"
 import Post from "/src/components/Posts.vue";
-import Posts from "/src/json/posts.json";
+import Posts from "/src/store/index.js";
 
 export default {
   name: "app",
@@ -19,13 +20,11 @@ export default {
       PageFooter,
       Post,
     },
-    data() {
-      return {
-        Posts: [],
-      };
-    },
   created() {
     this.Posts = Posts.posts;
+  },
+  computed: {
+    ...mapGetters(['allPosts']),
   },
 };
 </script>
