@@ -1,34 +1,8 @@
 <template>
   <div id="app">
-    <PageHeader />
-    <Post v-for="post in Posts" :key="post.id" :post="post" />
-    <PageFooter />
-</div>
+    <router-view />
+  </div>
 </template>
-
-<script>
-import PageFooter from "./components/Footer.vue"
-import PageHeader from "./components/Header.vue"
-import Post from "./components/Posts.vue";
-import Posts from "./json/posts.json";
-
-export default {
-  name: "app",
-  components: {
-      PageHeader,
-      PageFooter,
-      Post,
-    },
-    data() {
-      return {
-        Posts: [],
-      };
-    },
-  created() {
-    this.Posts = Posts.posts;
-  },
-};
-</script>
 
 <style>
 #app {

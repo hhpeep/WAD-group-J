@@ -1,10 +1,14 @@
 <template>
-  <div>
-    <div class="heightCenter navtext">
-      <a href="./index.html" class="nav">Home</a>
-      <span> | </span> <!-- Use span instead of <a> for the separator -->
-      <a href="./addPage.html" class="nav">Add Post</a>
-    </div>
+  <div class="heightCenter navtext">
+  <nav>
+      <ul>
+        <li><router-link to="/">HomeView</router-link></li>
+        <span> | </span>
+        <li><router-link to="/signup">SignUp</router-link></li>
+      </ul>
+    </nav>
+</div>
+<div>
     <img 
       src="res/images/defaultProfile.jpg" 
       alt="Profile" 
